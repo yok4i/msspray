@@ -311,6 +311,7 @@ def spray(args, username_list, password_list):
                         exit(1)
                     pass
 
+            wait(args.wait, args.jitter)  # Ensure the previous DOM is stale
             # Populate the username field and click 'Next'
             userfield = browser.find_element(elements["type"], elements["username"])
             if not userfield:
