@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-
-
 """A basic username enumeration and password spraying tool aimed at spraying MS Online's DOM based authentication."""
 
 from sys import exit
@@ -20,9 +18,9 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
-
 from webdriver_manager.firefox import GeckoDriverManager
 
+import requests
 # Handle deprecation warnings for the time being
 import warnings
 
@@ -272,6 +270,7 @@ def spray(args, username_list, password_list):
     creds = {}
     locked = []
     invalid = 0
+    counter = 0
     browser = BrowserEngine(wait=args.wait, proxy=args.proxy, headless=args.headless)
 
     for sublist in get_chunks_from_list(password_list, args.count):
