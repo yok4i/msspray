@@ -385,7 +385,7 @@ def spray(args, username_list, password_list):
         else:
             lockout_reset_wait(args.lockout)  # Wait for lockout period
 
-    spray_stats(creds, locked, invalid)
+    spray_stats(creds, locked, invalid, args)
 
 
 # Username enumeration
@@ -457,7 +457,7 @@ def enum(args, username_list):
             valid.append(username)
 
 
-    enum_stats(valid, invalid)
+    enum_stats(valid, invalid, args)
 
 
 # Print the banner
